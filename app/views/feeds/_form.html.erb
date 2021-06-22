@@ -8,17 +8,20 @@
     <%= form.file_field :image %>
     <%= form.hidden_field :image_cache %>
   </div>
+
+
+ <%
+=begin%>
+ <%= form_with(model: [@feed, @comment], local: true) do |f| %> 
+  <%= f.text_field :content %>
+  <%= f.submit "コメントする", class: "btn btn-primary" %>
+<% end %>  
+<%
+=end%>
+
+
   <div class="actions">
     <%= form.submit %>
   </div>
 
-
-  <div class="field">
-    <%= form.label :image %>
-    <%= form.file_field :image %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>

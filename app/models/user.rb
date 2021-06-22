@@ -6,6 +6,6 @@ class User < ApplicationRecord
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
   has_many :favorites, dependent: :destroy
-  belongs_to :feed
-  belongs_to :favorite 
+  has_many :feeds
+  # belongs_to :favorite 
 end

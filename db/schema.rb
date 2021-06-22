@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_22_043449) do
+ActiveRecord::Schema.define(version: 2021_06_22_091153) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "feed_id"
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["feed_id"], name: "index_comments_on_feed_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
 
   create_table "contacts", force: :cascade do |t|
     t.string "name"
@@ -37,6 +47,7 @@ ActiveRecord::Schema.define(version: 2021_06_22_043449) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.string "content"
     t.index ["user_id"], name: "index_feeds_on_user_id"
   end
 
@@ -49,6 +60,8 @@ ActiveRecord::Schema.define(version: 2021_06_22_043449) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "comments", "feeds"
+  add_foreign_key "comments", "users"
   add_foreign_key "favorites", "feeds"
   add_foreign_key "favorites", "users"
   add_foreign_key "feeds", "users"
