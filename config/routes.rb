@@ -1,11 +1,8 @@
 Rails.application.routes.draw do
-  get 'comments/create'
-  get 'comments/destroy'
   get 'sessions/new'
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :favorites, only: [:create, :destroy]
-  resources :contacts
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
   resources :feeds do 
     collection do
