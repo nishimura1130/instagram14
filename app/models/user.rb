@@ -9,3 +9,8 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :feeds
 end
+
+# @user = User.find(1)
+# @feeds = Feed.where(user_id: @user.id) => [feed1, feed2 ...]
+# has_many :feeds
+# @user.feeds  => [feed1, feed2 ...]

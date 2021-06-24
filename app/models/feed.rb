@@ -5,3 +5,8 @@ class Feed < ApplicationRecord
   belongs_to :user
   validates :comment, presence: true
 end
+
+# @feed = Feed.find(1)
+# @user = User.find(feed.user_id)
+# belongs_to :user
+# @feed.user
