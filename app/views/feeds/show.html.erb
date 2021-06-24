@@ -5,6 +5,12 @@
 </p>
 <%= link_to 'Edit', edit_feed_path(@feed) %> |
 <%= link_to 'Back', feeds_path %>
+<p>
+  <strong>content:</strong>
+  <%= @feed.content %>
+</p>
+
+
 
 <% unless @feed.user_id == current_user.id %>
   <% if @favorite.present? %>
@@ -15,10 +21,7 @@
 
 
 <p id="notice"><%= notice %></p>
-<p>
-  <strong>content:</strong>
-  <%= @feed.content %>
-</p>
+
 <%= link_to 'Edit', edit_feed_path(@feed) %> |
 <%= link_to 'Back', feeds_path %> 
 

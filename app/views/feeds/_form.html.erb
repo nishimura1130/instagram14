@@ -4,22 +4,10 @@
     <%= form.label :image %>
     <!-- 確認画面から新規作成画面に戻った時に、 -->
     <!-- アップロードした画像を表示させるための記述 -->
-    <%= image_tag(@feed.image.url) if @feed.image && @feed.image.url %>
     <%= form.file_field :image %>
     <%= form.hidden_field :image_cache %>
+    <%= form.text_area :content %>
   </div>
-
-
- <%
-=begin%>
- <%= form_with(model: [@feed, @comment], local: true) do |f| %> 
-  <%= f.text_field :content %>
-  <%= f.submit "コメントする", class: "btn btn-primary" %>
-<% end %>  
-<%
-=end%>
-
-
   <div class="actions">
     <%= form.submit %>
   </div>

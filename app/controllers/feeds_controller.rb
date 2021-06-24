@@ -9,6 +9,7 @@ class FeedsController < ApplicationController
   # GET /feeds/1 or /feeds/1.json
   def show
       @favorite = current_user.favorites.find_by(feed_id: @feed.id)
+      @comment = Comment.new
   end
 
   # GET /feeds/new
@@ -21,6 +22,7 @@ class FeedsController < ApplicationController
 end
 def confirm
   @feed = Feed.new(feed_params)
+  
 end
 
   # GET /feeds/1/edit

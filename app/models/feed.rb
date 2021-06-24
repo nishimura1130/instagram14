@@ -5,5 +5,4 @@ class Feed < ApplicationRecord
   belongs_to :user
   # belongs_to :favorite 
   validates :content, presence: true
-  
 end

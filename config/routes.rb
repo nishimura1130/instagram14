@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'comments/create'
   get 'comments/destroy'
   get 'sessions/new'
-  resources :users, only: [:new, :create, :show]
+  resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :favorites, only: [:create, :destroy]
   resources :contacts
@@ -13,3 +13,4 @@ Rails.application.routes.draw do
     end
   end
 end
+
