@@ -21,6 +21,7 @@ class UsersController < ApplicationController
   end
 
   def update
+    @user = User.find(params[:id])
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, notice: "Feed was successfully updated." }
@@ -31,6 +32,8 @@ class UsersController < ApplicationController
       end
     end
   end
+
+  # updateの書き終わりになります
   
 
   private

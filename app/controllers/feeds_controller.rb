@@ -34,6 +34,9 @@ end
     @feed = current_user.feeds.build(feed_params)
     respond_to do |format|
       if @feed.save
+        # SEND MAIL
+
+        
         format.html { redirect_to @feed, notice: "Feed was successfully created." }
         format.json { render :show, status: :created, location: @feed }
       else
