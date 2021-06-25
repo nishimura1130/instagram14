@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+# root 'users/index'
   get 'sessions/new'
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
