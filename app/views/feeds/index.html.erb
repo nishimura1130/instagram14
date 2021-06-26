@@ -14,9 +14,16 @@
     <% @feeds.each do |feed| %>
       <tr>
         <td><%= image_tag(feed.image.url) if feed.image && feed.image.url %></td>
+          <td>本文:<%= feed.comment %></td>
         <td><%= link_to 'Show', feed %></td>
         <td><%= link_to 'Edit', edit_feed_path(feed) %></td>
+        <%
+=begin%>
+ <td><%= link_to 'いいね一覧', favorite_path(feed) %></td> 
+<%
+=end%>
         <td><%= link_to 'Destroy', feed, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  
       </tr>
     <% end %>
   </tbody>

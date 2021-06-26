@@ -1,0 +1,18 @@
+
+ <%= @favorite.each do |favorite| %>
+<%= link_to favorite.user.email, [favorite.user] %>
+
+<%= link_to [favorite] do %>
+
+
+ <%
+=begin%>
+ <%= link_to image_tag favorite.user.image %>   
+<%
+=end%>
+ <%= link_to favorite.user.image, [favorite.user] %>  
+
+
+
+ <% end %>  
+ <% end %>  
